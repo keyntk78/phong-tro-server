@@ -10,6 +10,9 @@
     "prettier": "prettier --check \"**/(*.js|*.jsx|*.tsx|*.ts)\"",
     "prettier:fix": "prettier --write \"**/(*.js|*.jsx|*.tsx|*.ts)\""
   },
+  "engines": {
+    "node": ">=14 <15"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
