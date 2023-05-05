@@ -1,7 +1,7 @@
 {
   "name": "server",
   "engines": {
-    "node": ">=14 <15"
+    "node": ">=14.x"
   },
   "version": "1.0.0",
   "description": "",
