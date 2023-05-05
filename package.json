@@ -1,5 +1,8 @@
 {
   "name": "server",
+  "engines": {
+    "node": ">=14 <15"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,9 +12,6 @@
     "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src/",
     "prettier": "prettier --check \"**/(*.js|*.jsx|*.tsx|*.ts)\"",
     "prettier:fix": "prettier --write \"**/(*.js|*.jsx|*.tsx|*.ts)\""
-  },
-  "engines": {
-    "node": ">=14 <15"
   },
   "keywords": [],
   "author": "",
