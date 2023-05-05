@@ -1,24 +1,31 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
+    "username": "phongtrodb_user",
+    "password": "55WhKClYbjtzCPH50uEWtF2jiXdfKyRF",
     "database": "phongtrodb",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "logging": false
+    "host": "dpg-chabofqk728r880sk680-a.singapore-postgres.render.com",
+    "dialect": "postgres",
+    "logging": false,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
+
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "phongtrodb_user",
+    "password": "55WhKClYbjtzCPH50uEWtF2jiXdfKyRF",
+    "database": "phongtrodb",
+    "host": "dpg-chabofqk728r880sk680-a.singapore-postgres.render.com",
+    "dialect": "postgres",
+    "logging": false,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }

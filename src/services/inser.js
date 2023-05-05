@@ -11,6 +11,41 @@ import { dataPrice, dataArea } from '../ultis/data'
 import generateCode from '../ultis/generateCode'
 import { slugToString, getMoneyFromStringV3, getNumberFromStringV2 } from '../ultis/common'
 
+const categories = [
+  {
+    code: 'CTCH',
+    value: 'Cho thuê căn hộ',
+    header: 'Cho Thuê Căn Hộ Chung Cư, Giá Rẻ, Mới Nhất 2023',
+    subheader:
+      'Cho thuê căn hộ - Kênh đăng tin cho thuê căn hộ số 1: giá rẻ, chính chủ, đầy đủ tiện nghi. Cho thuê chung cư với nhiều mức giá, diện tích cho thuê khác nhau.',
+    slug: 'cho-thue-can-ho'
+  },
+  {
+    code: 'CTMB',
+    value: 'Cho thuê mặt bằng',
+    header: 'Cho Thuê Mặt Bằng, Cửa Hàng + Kiot Giá Rẻ, Mới Nhất 2023',
+    subheader:
+      'Cho thuê mặt bằng - Kênh thông tin mặt bằng giá rẻ, cửa hàng, kiot số 1 Việt Nam. Tìm mặt bằng kinh doanh, buôn bán nhỏ, gần chợ tất cả có tại web phongtro123.com',
+    slug: 'cho-thue-mat-bang'
+  },
+  {
+    code: 'CTPT',
+    value: 'Cho thuê phòng trọ',
+    header: 'Cho thuê phòng trọ, Giá Rẻ, Mới Nhất 2023',
+    subheader:
+      'Cho thuê phòng trọ - Kênh thông tin số 1 về phòng trọ giá rẻ, phòng trọ sinh viên, phòng trọ cao cấp mới nhất năm 2023. Tất cả nhà trọ cho thuê giá tốt nhất tại Việt Nam.',
+    slug: 'cho-thue-phong-tro'
+  },
+  {
+    code: 'NCT',
+    value: 'Cho thuê nhà nguyên căn',
+    header: 'Cho Thuê Nhà Nguyên Căn, Giá Rẻ, Chính Chủ, Mới Nhất 2023',
+    subheader:
+      'Cho thuê nhà nguyên căn - Kênh đăng tin cho thuê nhà số 1: giá rẻ, chính chủ, miễn trung gian, đầy đủ tiện nghi, mức giá, diện tích cho thuê khác nhau.',
+    slug: 'cho-thue-nha-nguyen-can'
+  }
+]
+
 // const databody = chothucanho.body
 const dataBody = [
   {
@@ -38,6 +73,9 @@ export const insertService = () =>
     try {
       const provinceCodes = []
       const labelCodes = []
+
+      await db.Category.bulkCreate(categories)
+
       dataBody.map((data) => {
         data.body.forEach(async (item) => {
           let postId = v4()
@@ -75,7 +113,8 @@ export const insertService = () =>
             address: item?.header?.address,
             attributesId: attributesId,
             categoryCode: data.code,
-            description: JSON.stringify(item?.mainContent.content),
+            description:
+              'Căn hộ biển cao cấp New Galaxy Nha Trang. Với thời điểm hiện tại, để tìm một căn hộ biển, pháp lý chuẩn - rõ ràng, giá tốt hơn thị trường, có ngân hàng cho vay, sổ đỏ sở hữu lâu dài, tiến độ thanh toán nhẹ nhàng, tiềm năng tăng giá cao, chủ đầu tư uy tín hàng đầu Việt Nam là một điều không hề dễ.',
             userId: userId,
             overviewId: overviewId,
             imagesId: imagesId,
@@ -119,7 +158,6 @@ export const insertService = () =>
         })
       })
 
-      // console.log(provinceCodes);
       provinceCodes?.forEach(async (item) => {
         await db.Province.create(item)
       })
